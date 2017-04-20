@@ -1,0 +1,46 @@
+@import ../variables/colors
+
+.centered-layout
+  width               : 100%
+  height              : 100vh
+  background-color    : $blue
+  display             : flex
+  flex-direction      : column
+  justify-content     : center
+  section
+    width  : 400px
+    height : 490px
+    margin : 0 auto
+    header
+      margin-bottom : 28px
+      img
+        display : block
+        margin  : 0 auto
+    section
+      width  : 100%
+      height : auto
+      a
+        font-size  : 13px
+        color      : $green
+        display    : block
+        text-align : right
+    footer
+      margin-top : 35px
+      p, i
+        font-size  : 12px
+        color      : $font-light
+        text-align : center
+        i
+          margin : 0 auto
+
+@media ( max-width: 420px )
+  .centered-layout
+    section
+     width : 90%
+     header
+      .s-big-logo
+        margin-top          : 20px
+        width               : 250px;
+        height              : 37px;
+        background-position : 1px -53px;
+        background-size     : 100%;
