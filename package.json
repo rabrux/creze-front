@@ -1,0 +1,44 @@
+{
+  "name": "creze-front",
+  "version": "0.0.0",
+  "description": "creze front end test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rabrux/creze-front.git"
+  },
+  "keywords": [
+    "creze",
+    "text",
+    "front"
+  ],
+  "author": "rabrux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rabrux/creze-front/issues"
+  },
+  "homepage": "https://github.com/rabrux/creze-front#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "coffee-script": "^1.12.5",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-coffee": "^2.3.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-filter": "^5.0.0",
+    "gulp-flatten": "^0.3.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-less": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-watch": "^4.3.11",
+    "main-bower-files": "^2.13.1"
+  }
+}

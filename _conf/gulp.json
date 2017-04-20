@@ -1,0 +1,45 @@
+{
+  "coffee": {
+    "source": [
+      "_src/scripts/*.coffee",
+      "_src/scripts/**/*.coffee"
+    ],
+    "file": "app.min.js",
+    "dest": "bundle/js"
+  },
+  "styles": {
+    "source": [
+      "_src/style/*.sass",
+      "_src/style/**/*.sass"
+    ],
+    "file": "style.min.css",
+    "dest": "bundle/css"
+  },
+  "templates": {
+    "source": [
+      "_src/templates/*.jade",
+      "_src/templates/**/*.jade"
+    ],
+    "dest": "bundle/templates"
+  },
+  "index": {
+    "source": "_src/index.html",
+    "dest": "bundle"
+  },
+  "images": {
+    "source": [
+      "_src/images/*.*",
+      "_src/images/**/*.*"
+    ],
+    "dest": "bundle/images"
+  },
+  "dist": [
+    "bundle/js/*.js",
+    "bundle/css/*.css",
+    "bundle/templates/*.html",
+    "bundle/templates/**/*.html",
+    "bundle/images/*.*",
+    "bundle/images/**/*.*",
+    "bundle/*.html"
+  ]
+}
