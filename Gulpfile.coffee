@@ -24,8 +24,8 @@ gulp.task 'libraries', ->
   jsFilter    = gulpFilter [ '*.js', '**/*.js' ], { restore : true }
   cssFilter   = gulpFilter [ '*.css', '**/*.css' ], { restore : true }
   lessFilter  = gulpFilter [ '*.less', '**/*.less' ], { restore : true }
-  fontFilter  = gulpFilter ['*.eot', '*.woff', '*.woff2', '*.svg', '*.ttf'], { restore : true }
-  imageFilter = gulpFilter ['*.gif', '*.png', '*.svg', '*.jpg', '*.jpeg'], { restore : true }
+  fontFilter  = gulpFilter ['*.eot', '**/*.eot', '*.woff', '**/*.woff', '*.woff2', '**/*.woff2', '*.svg', '**/*.svg', '*.ttf', '**/*.ttf'], { restore : true }
+  imageFilter = gulpFilter ['*.gif', '**/*.gif', '*.png', '**/*.png', '*.svg', '**/*.svg', '*.jpg', '**/*.jpg', '*.jpeg', '**/*.jpeg'], { restore : true }
 
   return gulp
     .src bowerMain()
@@ -51,16 +51,16 @@ gulp.task 'libraries', ->
     .pipe rename( { suffix: ".min" } )
     .pipe gulp.dest('bundle/lib/css')
     .pipe lessFilter.restore
-    # Fonts
-    .pipe fontFilter
-    .pipe flatten()
-    .pipe gulp.dest('bundle/lib/fonts')
-    .pipe fontFilter.restore
     # Images
     .pipe imageFilter
     .pipe flatten()
     .pipe gulp.dest('bundle/lib/images')
     .pipe imageFilter.restore
+    # Fonts
+    .pipe fontFilter
+    .pipe flatten()
+    .pipe gulp.dest('bundle/lib/fonts')
+    .pipe fontFilter.restore
 
 # Inject
 gulp.task 'inject', [ 'libraries' ], ->

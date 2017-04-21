@@ -1,20 +1,18 @@
 .centered-layout
-  section
+  .content
     header
       img( src="images/logo_iso.svg" )
-    section
+    section.login-form
       form( ng-submit="login()" )
         .login-input
-          i.s.s-b-user
+          i.ion-ios-person-outline
           input( type="text" ng-model="credentials.username" placeholder="usuario" required )
         .login-input
-          i.s.s-b-key
+          i.ion-ios-locked
           input( type="password" ng-model="credentials.password" placeholder="contraseña" required )
         button.login-submit entrar
       
-      a( ui-sref="outside.recovery" ) Olvidé mi contraseña
+      a.recovery( ui-sref="outside.recovery" ) Olvidé mi contraseña
 
     footer
-      p
-        | Creze &copy; 2016. Todos los Derechos Reservados
-        i.s.s-inbox
+      p Creze &copy; 2016. Todos los derechos reservados.
