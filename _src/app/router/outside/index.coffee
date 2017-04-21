@@ -7,7 +7,7 @@ angular
 
       $stateProvider
         .state 'outside',
-          template: '<div ui-view>'
+          templateUrl : 'templates/outside/index.html'
 
       return
   ]

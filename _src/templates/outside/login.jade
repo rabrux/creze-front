@@ -1,18 +1,11 @@
-.centered-layout
-  .content
-    header
-      img( src="images/logo_iso.svg" )
-    section.login-form
-      form( ng-submit="login()" )
-        .login-input
-          i.ion-ios-person-outline
-          input( type="text" ng-model="credentials.username" placeholder="usuario" required )
-        .login-input
-          i.ion-ios-locked
-          input( type="password" ng-model="credentials.password" placeholder="contraseña" required )
-        button.login-submit entrar
-      
-      a.recovery( ui-sref="outside.recovery" ) Olvidé mi contraseña
+.login-layout
+  form( ng-submit="login()" )
+    .icon-input
+      i.ion-at
+      input( type="email" ng-model="credentials.username" placeholder="usuario" required )
+    .icon-input
+      i.ion-ios-locked
+      input( type="password" ng-model="credentials.password" placeholder="contraseña" required )
+    button.btn.btn-large.btn-ok entrar
 
-    footer
-      p Creze &copy; 2016. Todos los derechos reservados.
+  a.recovery( ui-sref="outside.recovery" ) Olvidé mi contraseña

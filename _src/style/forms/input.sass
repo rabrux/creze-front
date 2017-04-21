@@ -1,0 +1,30 @@
+@import ../variables/colors
+
+.icon-input
+  display : flex
+  line-height : 35px
+  border      : 1px solid $green
+  & + .icon-input,
+  & + .btn
+    margin-top : 14px
+  i
+    font-size    : 20px
+    width        : 35px
+    text-align   : center
+    color        : $green
+    border-right : 1px solid $green
+  input
+    flex       : 1
+    background : transparent
+    color      : $font-light
+    font-size  : 20px
+    border     : none
+    padding    : 0 14px
+    &::-webkit-input-placeholder
+      color : $green
+    &::-moz-placeholder
+      color : $green
+    &:-ms-input-placeholder
+      color : $green
+    &:-moz-placeholder
+      color : $green

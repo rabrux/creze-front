@@ -1,0 +1,19 @@
+@import ../variables/colors
+
+.btn
+  border      : none
+  background  : red
+  font-size   : 15px
+  line-height : 28px
+  padding     : 0 14px
+  display     : inline-block
+  cursor      : pointer
+  &.btn-large
+    width       : 100%
+    font-size   : 20px
+    line-height : 35px
+  // colors
+  &.btn-ok,
+  &.btn-submit
+    background-color : $success
+    color            : $blue
