@@ -1,0 +1,16 @@
+.centered-layout
+  .content
+    header
+      img( src="images/logo_iso.svg" )
+    section( ng-show=" msg=='ALREADY_VERIFIED' " ).alert-message.error
+      h2 ¡Error!
+      p El correo electrónico ya ha sido verificado anteriormente.
+      button ir al inicio
+    section( ng-show=" msg=='INVALID_HASH' " ).alert-message.error
+      h2 ¡Error!
+      p El hash específicado es incorrecto, le hemos enviado un correo electrónico con el link de verificación, por favor revise su bandeja de entrada y vuelva a intentar.
+      button ir al inicio
+    section( ng-show=" msg=='SUCCESSFULLY_VERIFIED' " ).alert-message.success
+      h2 ¡Éxito!
+      p El correo electrónico ha sido verificado correctamente.
+      a( ui-sref="outside.login" ).btn ir al inicio

@@ -1,0 +1,25 @@
+@import ../../variables/colors
+
+.alert-message
+  background : $light-gray 
+  h2
+    font-size  : 1.4rem
+    margin-bottom : 7px
+  p
+    text-align : justify
+    color      : $font-primary
+    margin     : 11px 0
+  .btn
+    background  : $green
+    color       : $font-light
+    font-weight : 500
+    float       : right
+    padding     : 0 14px
+    font-size   : 15px
+    line-height : 28px
+  &.error
+    h2
+      color : $error
+  &.success
+    h2
+      color : $success
