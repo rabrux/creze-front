@@ -1,0 +1,36 @@
+@import ../variables/colors
+
+.filters
+  display : flex
+  justify-content : space-between
+  padding : 14px
+  .filter
+    flex : 1
+    padding-bottom : 14px
+    border-bottom  : 3px solid transparent
+    [class*=icon]
+      text-align : center
+      color      : darken( $light-gray, 45% )
+      font-size  : 2rem
+      cursor     : pointer
+      &[class*=rejected]
+        color : $rejected
+      &[class*=approved]
+        color : $approved
+      &[class*=verified]
+        color : $verified
+    label
+      display    : block
+      font-size  : 10px
+      text-align : center
+      color      : darken( $light-gray, 50% )
+    &.active
+      border-bottom-color : $green
+
+@media ( max-width : 560px )
+  .filters
+    .filter
+      & + .filter
+        margin-left : 14px
+      label
+        display : none

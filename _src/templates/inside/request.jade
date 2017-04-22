@@ -1,0 +1,52 @@
+.search-bar
+  input( type="text" ng-model="search" placeholder="solicitudes" )
+  i( ng-show=" search.length == 0 " ).ion-android-search
+  i( ng-show=" search.length > 0 " ng-click=" search = '' " ).ion-android-close
+  
+.filters
+  .filter( ng-class="{ 'active' : status == 'NONE' }" )
+    .icon( ng-click="status='NONE'" )
+      i.ion-asterisk
+    label todas
+  .filter( ng-class="{ 'active' : status == 'LT300' }" )
+    .icon-rejected( ng-click="status='LT300'" )
+      i.ion-arrow-graph-down-right
+    label ventas menores a 300k
+  .filter( ng-class="{ 'active' : status == 'RECEIVED' }" )
+    .icon( ng-click="status='RECEIVED'" )
+      i.ion-android-done
+    label recibidas
+  .filter( ng-class="{ 'active' : status == 'VERIFIED' }" ) 
+    .icon-verified( ng-click="status='VERIFIED'" )
+      i.ion-android-done-all
+    label verificadas
+  .filter( ng-class="{ 'active' : status == 'APPROVED' }" )
+    .icon-approved( ng-click="status='APPROVED'" )
+      i.ion-android-done-all
+    label aprobadas
+  .filter( ng-class="{ 'active' : status == 'CLIENT-ACCEPTED' }" )
+    .icon-client-approved( ng-click="status='CLIENT-ACCEPTED'" )
+      i.ion-ios-person-outline
+    label aceptadas por el cliente
+  .filter( ng-class="{ 'active' : status == 'REJECTED' }" )
+    .icon-rejected( ng-click="status='REJECTED'" )
+      i.ion-android-close
+    label rechazadas
+
+div( ng-show=" applications.length > 0 " ).request-table
+  .row.header
+    .col ID
+    .col Fecha
+    .col-2 Persona física
+    .col Monto
+    .col Estado
+    .col.sh Facturación
+  .body.scrollable
+    .row( ng-repeat=" application in applications | byStatus:status | filter:search " )
+      .col {{ application.id }}
+      .col {{ application.date | date }}
+      .col-2 {{ application.person }}
+      .col.amount {{ application.amount | amount }}
+      .col.status
+        i( class="{{ application | status }}" )
+      .col.sh.amount {{ application.monthlySales | amount }}
