@@ -8,5 +8,6 @@ angular
         .state 'outside.recovery',
           url         : '/recovery'
           templateUrl : 'templates/outside/recovery.html'
+          controller  : 'RecoveryCtrl'
 
   ]

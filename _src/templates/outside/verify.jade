@@ -4,9 +4,9 @@
     p El correo electrónico ya ha sido verificado anteriormente.
     .row.right
       a( ui-sref="outside.login" ).btn.btn-ok ir al inicio
-  section( ng-show=" msg=='INVALID_HASH' " ).alert-message.error
+  section( ng-show=" msg=='INVALID_KEY' " ).alert-message.error
     h2 ¡Error!
-    p El hash específicado es incorrecto, le hemos enviado un correo electrónico con el link de verificación, por favor revise su bandeja de entrada y vuelva a intentar.
+    p El link específicado es incorrecto, le hemos enviado un correo electrónico con el link de verificación, por favor revise su bandeja de entrada y vuelva a intentar.
     .row.right
       a( ui-sref="outside.login" ).btn.btn-ok ir al inicio
   section( ng-show=" msg=='SUCCESSFULLY_VERIFIED' " ).alert-message.success

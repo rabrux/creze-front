@@ -2,8 +2,7 @@ angular
   .module('app')
   .config [
     '$stateProvider'
-    '$urlRouterProvider'
-    ($stateProvider, $urlRouterProvider) ->
+    ( $stateProvider ) ->
 
       $stateProvider
         .state 'outside',

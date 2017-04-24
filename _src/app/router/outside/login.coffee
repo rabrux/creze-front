@@ -2,14 +2,13 @@ angular
   .module('app')
   .config [
     '$stateProvider'
-    '$urlRouterProvider'
-    ($stateProvider, $urlRouterProvider) ->
+    ( $stateProvider ) ->
 
       $stateProvider
         .state 'outside.login',
-          url: '/login'
-          templateUrl: 'templates/outside/login.html'
-          # controller: 'LoginCtrl'
+          url         : '/login'
+          templateUrl : 'templates/outside/login.html'
+          controller  : 'LoginCtrl'
 
       return
   ]

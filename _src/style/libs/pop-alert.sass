@@ -1,0 +1,38 @@
+[class*=pop-alert]
+  position  : fixed
+  top       : 14px
+  right     : 14px
+  max-width : 250px
+  padding   : 14px
+  i
+    position     : absolute
+    top          : 0
+    right        : -5px
+    font-size    : 1.7rem
+    font-style   : normal
+    margin-right : 7px
+    &::before
+    font-family : 'Ionicons'
+  .msg
+    margin-right : 14px
+  &[class*=info]
+    background : #81d4fa
+    i::before
+      content : '\f35b'
+      color   : #0D47A1
+    .msg
+      color : darken( #0D47A1, 10% )
+  &[class*=error]
+    background : #EF9A9A
+    i::before
+      content : '\f36e'
+      color   : #B71C1C
+    .msg
+      color : darken( #B71C1C, 10% )
+  &[class*=warning]
+    background : #ffcc80
+    i::before
+      content : '\f100'
+      color   : #e65100
+    .msg
+      color : darken( #e65100, 10% )

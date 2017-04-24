@@ -1,6 +1,12 @@
 .recovery-layout
-  form( ng-submit="send()" )
+  form( ng-submit="send()" ng-hide=" msg=='OK' " )
     .icon-input
       i.ion-at
-      input( type="email" placeholder="correo electrónico" required )
+      input( type="email" ng-model="user.username" placeholder="correo electrónico" required )
     button.btn.btn-large.btn-submit recuperar contraseña
+
+  section( ng-show=" msg=='OK' " ).alert-message.success
+    h2 ¡Éxito!
+    p Le hemos enviado un correo electrónico con las instrucciones para cambiar su contraseña.
+    .row.right
+      a( ui-sref="outside.login" ).btn.btn-ok ir al inicio

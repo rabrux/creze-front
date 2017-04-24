@@ -2,6 +2,10 @@ angular
   .module( 'app' )
   .controller 'RootCtrl', [
     '$scope'
-    ( $scope ) ->
+    'user'
+    ( $scope, user ) ->
+
+      $scope.user = user
+
       $scope.search = ''
   ]

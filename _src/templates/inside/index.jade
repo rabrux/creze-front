@@ -3,7 +3,7 @@
    .logo
       img( src="images/logo_iso.svg" )
     .user-menu
-      .name Loremso
+      .name {{ user.name }}
       a( ui-sref="inside.logout" ).action
         i.ion-power
   content( ui-view="" )
