@@ -1,0 +1,12 @@
+.passwd-layout
+  form( ng-submit="send()" )
+    .icon-input
+      i.ion-ios-locked
+      input( type="password" ng-model="password" placeholder="contraseña" required )
+    .icon-input
+      i.ion-ios-locked
+      input( type="password" ng-model="verifyp" placeholder="verificar contraseña" required )
+    div( ng-show="password != verifyp" ).form-alert-error
+      i.ion-alert
+      | Las contraseñas no coinciden.
+    button( ng-disabled=" password != verifyp || password == undefined " style="margin-top:14px" ).btn.btn-large.btn-submit cambiar contraseña
