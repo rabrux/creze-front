@@ -1,0 +1,15 @@
+.request-layout
+  form( ng-submit="send()" )
+    .icon-input
+      i.ion-ios-person-outline
+      input( type="text" ng-model="request.name" placeholder="nombre completo" required )
+    .icon-input
+      i.ion-at
+      input( type="email" ng-model="request.email" placeholder="correo electrónico" required )
+    .icon-input
+      i.ion-calendar
+      input( type="number" ng-model="request.monthlySales" placeholder="ventas mensuales" min="50000" step="10000" required )
+    .icon-input
+      i.ion-cash
+      input( type="number" ng-model="request.amount" placeholder="monto solicitado" min="50000" step="50000" required )
+    button.btn.btn-large.btn-ok aplicar

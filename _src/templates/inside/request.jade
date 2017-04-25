@@ -24,8 +24,8 @@
     .icon-approved( ng-click="status='APPROVED'" )
       i.ion-android-done-all
     label aprobadas
-  .filter( ng-class="{ 'active' : status == 'CLIENT-ACCEPTED' }" )
-    .icon-client-approved( ng-click="status='CLIENT-ACCEPTED'" )
+  .filter( ng-class="{ 'active' : status == 'CLIENT_ACCEPTED' }" )
+    .icon-client-approved( ng-click="status='CLIENT_ACCEPTED'" )
       i.ion-ios-person-outline
     label aceptadas por el cliente
   .filter( ng-class="{ 'active' : status == 'REJECTED' }" )
@@ -44,9 +44,22 @@ div( ng-show=" applications.length > 0 " ).request-table
   .body.scrollable
     .row( ng-repeat=" application in applications | byStatus:status | filter:search " )
       .col {{ application.id }}
-      .col {{ application.date | date }}
-      .col-2 {{ application.person }}
+      .col {{ application.createdAt | date }}
+      .col-2.left {{ application.name }}
       .col.amount {{ application.amount | amount }}
       .col.status
         i( class="{{ application | status }}" )
+        ul
+          li( ng-click="changeStatus( application, 'VERIFIED' )" ng-show=" application.monthlySales > 300000 " )
+            i.ion-android-done-all.verified
+            .text verificada
+          li( ng-click="changeStatus( application, 'APPROVED' )" ng-show=" application.monthlySales > 300000 " )
+            i.ion-android-done-all.approved
+            .text aprobada
+          li( ng-click="changeStatus( application, 'CLIENT_ACCEPTED' )" ng-show=" application.monthlySales > 300000 " )
+            i.ion-ios-person-outline.approved
+            .text aceptada por el cliente
+          li( ng-click="changeStatus( application, 'REJECTED' )" )
+            i.ion-android-close.rejected
+            .text rechazada
       .col.sh.amount {{ application.monthlySales | amount }}

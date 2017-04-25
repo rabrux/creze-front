@@ -2,107 +2,31 @@ angular
   .module( 'app' ) 
   .controller 'RequestCtrl', [
     '$scope'
-    ( $scope ) ->
+    '$requ'
+    'applications'
+    ( $scope, $req, apps ) ->
 
       $scope.status = 'NONE'
-      $scope.applications = [
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'RECEIVED'
-          monthlySales : 5000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'APPROVED'
-          monthlySales : 350260
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'VERIFIED'
-          monthlySales : 750000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'RECEIVED'
-          monthlySales : 250000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'VERIFIED'
-          monthlySales : 850000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'RECEIVED'
-          monthlySales : 250000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'RECEIVED'
-          monthlySales : 250000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'RECEIVED'
-          monthlySales : 50000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'CLIENT-ACCEPTED'
-          monthlySales : 300000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'REJECTED'
-          monthlySales : 500000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'RECEIVED'
-          monthlySales : 500000
-        }
-        {
-          id   : '0689'
-          date : 1492827952704
-          person : 'Lorem Ipsum'
-          amount : 50000
-          status : 'APPROVED'
-          monthlySales : 350000
-        }
-      ]
-  ]
+      $scope.applications = apps.data
 
-    
+      $scope.changeStatus = ( application, status ) ->
+        swal({
+          title: 'Advertencia'
+          text: "¿Realmente desea cambiar el estado de la solicitud #{ application.id }?"
+          type: 'warning'
+          showCancelButton: true
+          showConfirmButton: true
+          confirmButtonText: 'Si'
+          cancelButtonText: 'No'
+          closeOnConfirm: true
+          allowEscapeKey: false
+        }, (isConfirm) ->
+          if isConfirm
+            $req.update id : application.id, status : status
+              .success ( response ) ->
+                application.status = status
+              .error ( response ) ->
+                swal '¡Error!', 'La operación no ha podido completarse correctamente. Favor de intentar más tarde.', 'error'
+        )
+
+  ]

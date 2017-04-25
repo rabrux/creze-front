@@ -23,9 +23,13 @@
       &:nth-child( 1 )
         width : 70px
         flex  : none
+      &.left
+        text-align : left
       &.amount
-        text-align: right
+        text-align : right
       &.status
+        position : relative
+        cursor   : pointer
         i
           color     : darken( $light-gray, 45% )
           font-size : 28px
@@ -35,6 +39,47 @@
             color : $approved
           &[class*=verified]
             color : $verified
+
+          &:after
+            font-family : 'Ionicons'
+            content : '\f123'
+            font-style : normal
+            position: absolute
+            margin-left: 7px
+            margin-top: 1px
+            font-size : 14px
+            color : transparent
+        ul
+          position   : absolute
+          background : $light-gray
+          border     : 1px solid darken( $light-gray, 30% )
+          width   : 100%
+          z-index : 2
+          display : none
+          li
+            display : flex
+            padding : 7px
+            & + li
+              border-top : 1px solid darken( $light-gray, 30% )
+            &:hover
+              background : darken( $light-gray, 10% )
+            i
+              font-size    : 17px
+              margin-right : 7px
+              margin-top   : -5px
+              &:after
+                display : none
+            .text
+              flex : 1
+              font-size   : 13px
+              line-height : normal
+              text-align  : left
+        &:hover
+          i
+            &:after
+              color : inherit
+          ul
+            display : block
     .col-2
       flex : 2
 
